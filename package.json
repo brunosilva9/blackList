@@ -1,5 +1,5 @@
 {
-  "name": "lista-negra",
+  "name": "blacklist",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
