@@ -7,7 +7,8 @@ function ListaPecadores() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/pecados.json')
+    fetch(process.env.PUBLIC_URL + '/pecados.json')
+
       .then((res) => {
         if (!res.ok) throw new Error('No se pudo cargar la lista');
         return res.json();
@@ -17,8 +18,8 @@ function ListaPecadores() {
         const listaConIds = data.map((pecador, index) => ({
           ...pecador,
           id: index + 1,
-          tiempoPenitencia: typeof pecador.tiempoPenitencia === 'number' && pecador.tiempoPenitencia > 1000000000 
-            ? pecador.tiempoPenitencia 
+          tiempoPenitencia: typeof pecador.tiempoPenitencia === 'number' && pecador.tiempoPenitencia > 1000000000
+            ? pecador.tiempoPenitencia
             : Math.floor(Date.now() / 1000) + pecador.tiempoPenitencia
         }));
         setLista(listaConIds);
@@ -40,8 +41,8 @@ function ListaPecadores() {
       <ul style={{ listStyle: 'none', padding: 0 }}>
         {lista.map((pecador) => (
           <li key={pecador.id} style={{ marginBottom: '15px' }}>
-            <Link 
-              to={`/pecador/${pecador.id}`} 
+            <Link
+              to={`/pecador/${pecador.id}`}
               style={{
                 display: 'block',
                 padding: '15px',
@@ -86,11 +87,11 @@ function TiempoRestante({ finPenitencia }) {
 
   const formatearTiempo = (segundos) => {
     if (segundos <= 0) return 'Penitencia completada';
-    
+
     const horas = Math.floor(segundos / 3600);
     const minutos = Math.floor((segundos % 3600) / 60);
     const segundosRestantes = segundos % 60;
-    
+
     return `${horas > 0 ? `${horas}h ` : ''}${minutos}m ${segundosRestantes}s`;
   };
 

@@ -143,7 +143,7 @@ function DetallePecador() {
     // Cargar datos del pecador
     const cargarPecador = async () => {
       try {
-        const res = await fetch('/pecados.json');
+        const res = await fetch(process.env.PUBLIC_URL + '/pecados.json');
         if (!res.ok) throw new Error('No se pudo cargar la lista');
         const data = await res.json();
 
