@@ -1,13 +1,66 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --bg:         #0a0a0a;
+  --surface-1:  #111111;
+  --surface-2:  #181818;
+  --surface-3:  #202020;
+  --border:     #2a2a2a;
+  --border-2:   #333333;
+
+  --red:        #c0392b;
+  --red-hi:     #e74c3c;
+  --red-glow:   rgba(192, 57, 43, 0.18);
+  --red-dim:    rgba(192, 57, 43, 0.08);
+
+  --green:      #27ae60;
+  --green-hi:   #2ecc71;
+  --green-glow: rgba(39, 174, 96, 0.18);
+  --green-dim:  rgba(39, 174, 96, 0.08);
+
+  --text:       #ede8e3;
+  --text-2:     #888480;
+  --text-3:     #4a4744;
+
+  --font:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:       'JetBrains Mono', 'Courier New', monospace;
+
+  --radius:     10px;
+  --radius-sm:  6px;
+  --radius-lg:  14px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: var(--font);
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
